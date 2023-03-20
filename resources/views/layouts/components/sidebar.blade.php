@@ -75,7 +75,16 @@
         </a>
     </li> --}}
 
-    {{-- Instance SIDE BAR--}}
+    {{-- TEACHER SIDE BAR--}}
+    @elseif(auth()->user()->role == 'teacher')
+    <li class="nav-item {{ Route::current()->getName()=='teacher.profile' ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('teacher.profile') }}">
+            <i class="fas fa-fw fa-user"></i>
+            <span>{{ __('Profile') }}</span>
+        </a>
+    </li>
+
+    {{-- INSTANCE SIDE BAR--}}
     @elseif(auth()->user()->role == 'instance')
 
 
