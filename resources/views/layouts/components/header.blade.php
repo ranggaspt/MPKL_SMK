@@ -10,10 +10,12 @@
     @php
     if(auth()->user()->role == "super"){
         $name = "Super Admin";
+    }elseif(auth()->user()->role == "teacher"){
+        $name = Auth::user()->teacher->name;
     }elseif(auth()->user()->role == "instance"){
         $name = Auth::user()->instance->name;
     }else{
-        $name = Auth::user()->participant->name;
+        $name = Auth::user()->student->name;
     }
     @endphp
 
@@ -31,16 +33,20 @@
                 <span class="mr-2 d-none d-lg-inline small">{{ $name }}</span>
                 @if (auth()->user()->role == 'super')
                 <figure class="img-profile rounded-circle avatar font-weight-bold " data-initial = "{{ $name[0]}}" ></figure>
+                @elseif (auth()->user()->role == 'teacher')
+                <image src="{{ auth()->user()->teacher->photo == null ? asset('images/preview.png') : asset('storage/'.auth()->user()->teacher->photo) }}"class="img-profile rounded-circle"></image>
                 @elseif (auth()->user()->role == 'instance')
                 <image src="{{ auth()->user()->instance->photo == null ? asset('images/preview.png') : asset('storage/'.auth()->user()->instance->photo) }}"class="img-profile rounded-circle"></image>
                 @else
-                <image src="{{ auth()->user()->participant->photo == null ? asset('images/preview.png') : asset('storage/'.auth()->user()->participant->photo) }}"class="img-profile rounded-circle"></image>
+                <image src="{{ auth()->user()->student->photo == null ? asset('images/preview.png') : asset('storage/'.auth()->user()->student->photo) }}"class="img-profile rounded-circle"></image>
                 @endif
             </a>
             <!-- Dropdown - User Information -->
             @php
             if(auth()->user()->role == 'super'){
                 $route = route('admin.profile');
+            }elseif(auth()->user()->role == 'teacher'){
+                $route = route('teacher.profile');
             }elseif(auth()->user()->role == 'instance'){
                 $route = route('instance.profile');
             }else{

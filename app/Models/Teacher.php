@@ -22,6 +22,10 @@ class Teacher extends Model
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
+    
+    public function complaint(){
+        return $this->belongsTo('App\Models\Complaint');
+    }
 
     // public function packages(){
     //     return $this->hasMany('App\Models\Package');
