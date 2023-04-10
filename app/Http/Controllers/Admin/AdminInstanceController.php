@@ -9,6 +9,7 @@ use App\Http\Requests\UserRequest;
 use App\Models\Instance;
 use App\Models\Teacher;
 use App\Models\User;
+use App\Models\Student;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
@@ -178,4 +179,6 @@ class AdminInstanceController extends Controller
         $filePath = $file->storeAs($folder, $fileName, 'public');
         return $filePath;
     }
+
+    
 }

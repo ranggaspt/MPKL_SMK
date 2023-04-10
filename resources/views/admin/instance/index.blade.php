@@ -37,11 +37,11 @@
                                     <td>{{ $instance->teacher->name }}</td>
                                     <td>
                                         <div class="d-flex">
-                                            {{-- <div class="mr-2">
-                                                <a href="{{ route('admin.package.index', array('id' => Crypt::encrypt($instance->id))) }}" class="btn btn-sm btn-primary">
+                                            <div class="mr-2">
+                                                <a href="{{ route('admin.member.index', array('id' => Crypt::encrypt($instance->id))) }}" class="btn btn-sm btn-primary">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
-                                            </div> --}}
+                                            </div>
                                             <div class="mr-2">
                                                 <a href="{{ route('admin.instance.edit', Crypt::encrypt($instance->id)) }}" class="btn btn-sm btn-primary">
                                                     <i class="fa fa-pencil-alt"></i>

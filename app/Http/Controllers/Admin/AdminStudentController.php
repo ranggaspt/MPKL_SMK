@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-// use App\Exports\ParticipantExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StudentRequest;
 use App\Http\Requests\UserRequest;
-// use App\Imports\ParticipantImport;
-// use App\Imports\UsersImport;
+use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\User;
 use App\Models\Classroom;
 use App\Models\Instance;
-use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
@@ -185,6 +182,15 @@ class AdminStudentController extends Controller
         $filePath = $file->storeAs($folder, $fileName, 'public');
         return $filePath;
     }
+
+    // public function getStudent()
+    // {
+    //     $students = Student::where('instance_id',"=",Auth::user()->instance->id)->get();
+    //     $this->data['students'] = $students;
+    //     return view('instance.student.member', $this->data);
+    // }
+
+    
 
     // public function format() 
     // {

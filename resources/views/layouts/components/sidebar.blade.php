@@ -77,7 +77,6 @@
 
     {{-- TEACHER SIDE BAR--}}
     @elseif(auth()->user()->role == 'teacher')
-<<<<<<< HEAD
     
     <li class="nav-item {{ Route::current()->getName()=='teacher.attendance.index' ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('teacher.attendance.index') }}">
@@ -111,12 +110,6 @@
         <a class="nav-link" href="{{ route('teacher.report.index') }}">
             <i class="bi bi-bookmarks-fill fa-graduation-cap"></i>
             <span>{{ __('Report') }}</span>
-=======
-    <li class="nav-item {{ Route::current()->getName()=='teacher.profile' ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('teacher.profile') }}">
-            <i class="fas fa-fw fa-user"></i>
-            <span>{{ __('Profile') }}</span>
->>>>>>> cc7d2dd91c095888e723f4b0999817ae3652d345
         </a>
     </li>
 
