@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminTeacherController;
 use App\Http\Controllers\Admin\AdminClassroomController;
 use App\Http\Controllers\Admin\AdminStudyController;
 use App\Http\Controllers\Admin\AdminStudentController;
+use App\Http\Controllers\Admin\AdminMemberController;
 use App\Http\Controllers\Admin\AdminProfileController;
 
 use App\Http\Controllers\Instance\InstanceProfileController;
@@ -46,15 +47,19 @@ Route::middleware(['auth','user-access:super'])->group(function () {
     Route::resource('admin/teacher', AdminTeacherController::class)->names('admin.teacher');
     Route::resource('admin/classroom', AdminClassroomController::class)->names('admin.classroom');
     Route::resource('admin/study', AdminStudyController::class)->names('admin.study');
+    Route::resource('admin/member', AdminMemberController::class)->names('admin.member');
     Route::get('/admin/profile', [AdminProfileController::class,'index'])->name('admin.profile');
     Route::put('/admin/profile', [AdminProfileController::class, 'update'])->name('admin.profile.update');
 });
 
+<<<<<<< HEAD
 Route::middleware(['auth','user-access:teacher'])->group(function(){
     Route::get('/teacher/profile', [TeacherProfileController::class,'index'])->name('teacher.profile');
     Route::put('/teacher/profile', [TeacherProfileController::class, 'update'])->name('teacher.profile.update');
 });
 
+=======
+>>>>>>> 7ca404342535bf600f22affc4f61a30f7eb8b876
 Route::middleware(['auth','user-access:instance'])->group(function(){
     Route::get('/instance/profile', [InstanceProfileController::class,'index'])->name('instance.profile');
     Route::put('/instance/profile', [InstanceProfileController::class, 'update'])->name('instance.profile.update');

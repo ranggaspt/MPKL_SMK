@@ -74,7 +74,7 @@ class AdminClassroomController extends Controller
         $studies = Study::orderBy('name', 'ASC')->get();
         $this->data['studies'] = $studies;
         $classroom = Classroom::findOrFail(Crypt::decrypt($id));
-        $this->data['classroom'] = $classroom;
+        $this->data['data'] = $classroom;
         return view('admin.classroom.edit', $this->data);
     }
 

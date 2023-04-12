@@ -76,7 +76,7 @@
                             <div>
                                 <select class="form-control" name="teacher_id" required>
                                     @forelse ($teachers as $teacher)
-                                    <option value="{{$teacher->id}}" {{$teacher->teacher_id == $teacher->id ? 'selected' : ''}}>{{$teacher->name}}</option>
+                                    <option value="{{$teacher->id}}" {{$data->teacher_id == $teacher->id ? 'selected' : ''}}>{{$teacher->name}}</option>
                                     @empty
                                     <option value="NULL">Guru Pembimbing belum diinput</option>
                                     @endforelse

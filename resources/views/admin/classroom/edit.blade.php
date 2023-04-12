@@ -2,7 +2,7 @@
 
 @section('main-content')
 <div class="content">
-    <form method="POST" action="{{ route('admin.classroom.update', Crypt::encrypt($classroom->id)) }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('admin.classroom.update', Crypt::encrypt($data->id)) }}" enctype="multipart/form-data">
         {{ csrf_field() }}
         {{ method_field('put') }}
         <div class="col-lg-12">
@@ -14,7 +14,7 @@
                     <div class="pl-lg-4">
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Nama Kelas</label>
-                            <input id="name" type="text" class="form-control" name="name" value="{{ $classroom->name }}" required>
+                            <input id="name" type="text" class="form-control" name="name" value="{{ $data->name }}" required>
                             @if ($errors->has('name'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('name') }}</strong>
@@ -26,7 +26,7 @@
                             <div>
                                 <select class="form-control" name="study_id" required>
                                     @forelse ($studies as $study)
-                                    <option value="{{$study->id}}" {{$study->study_id == $study->id ? 'selected' : ''}}>{{$study->name}}</option>
+                                    <option value="{{$study->id}}" {{$data->study_id == $study->id ? 'selected' : ''}}>{{$study->name}}</option>
                                     @empty
                                     <option value="NULL">Jurusan belum diinput</option>
                                     @endforelse

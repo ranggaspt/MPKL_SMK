@@ -85,7 +85,7 @@
                                 <div>
                                     <select class="form-control" name="classroom_id" required>
                                         @forelse ($classrooms as $classroom)
-                                        <option value="{{$classroom->id}}" {{$classroom->classroom_id == $classroom->id ? 'selected' : ''}}>{{$classroom->name}}</option>
+                                        <option value="{{$classroom->id}}" {{$data->classroom_id == $classroom->id ? 'selected' : ''}}>{{$classroom->name}}</option>
                                         @empty
                                         <option value="NULL">Kelas belum diinput</option>
                                         @endforelse
@@ -103,7 +103,7 @@
                                 <div>
                                     <select class="form-control" name="instance_id" required>
                                         @forelse ($instances as $instance)
-                                        <option value="{{$instance->id}}" {{$instance->instance_id == $instance->id ? 'selected' : ''}}>{{$instance->instance_name}}</option>
+                                        <option value="{{$instance->id}}" {{$data->instance_id == $instance->id ? 'selected' : ''}}>{{$instance->instance_name}}</option>
                                         @empty
                                         <option value="NULL">Instansi belum diinput</option>
                                         @endforelse
