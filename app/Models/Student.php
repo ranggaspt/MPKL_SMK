@@ -14,6 +14,7 @@ class Student extends Model
         'user_id',
         'classroom_id',
         'instance_id',
+        'teacher_id',
         'name',
         'gender',
         'address',
@@ -35,5 +36,9 @@ class Student extends Model
 
     public function instance(){
         return $this->belongsTo('App\Models\Instance');
+    }
+
+    public function teacher(){
+        return $this->belongsTo('App\Models\Teacher');
     }
 }

@@ -12,6 +12,7 @@ use App\Models\Student;
 use App\Models\User;
 use App\Models\Classroom;
 use App\Models\Instance;
+use App\Models\Teacher;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\File;
@@ -43,6 +44,8 @@ class AdminStudentController extends Controller
         $this->data['classrooms'] = $classrooms;
         $instances = Instance::orderBy('name', 'ASC')->get();
         $this->data['instances'] = $instances;
+        $teachers = Teacher::orderBy('name', 'ASC')->get();
+        $this->data['teachers'] = $teachers;
         return view('admin.student.create', $this->data);
     }
 

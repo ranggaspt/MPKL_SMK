@@ -2,22 +2,13 @@
 
 namespace App\Http\Controllers\Teacher;
 
-<<<<<<< HEAD
-=======
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
->>>>>>> cc7d2dd91c095888e723f4b0999817ae3652d345
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TeacherRequest;
 use App\Models\Teacher;
 use App\Models\User;
-<<<<<<< HEAD
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-=======
->>>>>>> cc7d2dd91c095888e723f4b0999817ae3652d345
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
 use Nette\Utils\DateTime;

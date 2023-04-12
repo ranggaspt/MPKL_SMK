@@ -18,11 +18,11 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Complaint</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                    Jurnal</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ App\Models\Journal::count() ?? '0' }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="bi bi-chat-square-dots-fill fa-2x text-gray-300"></i>
+                                <i class="bi bi-book-fill fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -35,11 +35,11 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                    Journal</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                    Pengaduan</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ App\Models\Complaint::count() ?? '0' }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="bi bi-book-fill fa-2x text-gray-300"></i>
+                                <i class="bi bi-chat-square-dots-fill fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -52,11 +52,11 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    Monotiring</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                    Siswa</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ App\Models\Student::count() ?? '0' }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="bi bi-display fa-2x text-gray-300"></i>
+                                <i class="fa fa-users" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>

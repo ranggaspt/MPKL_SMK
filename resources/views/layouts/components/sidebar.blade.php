@@ -77,70 +77,63 @@
 
     {{-- TEACHER SIDE BAR--}}
     @elseif(auth()->user()->role == 'teacher')
-<<<<<<< HEAD
     
     <li class="nav-item {{ Route::current()->getName()=='teacher.attendance.index' ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('teacher.attendance.index') }}">
             <i class="bi bi-person-fill fa-graduation-cap"></i>
-            <span>{{ __('Attendance') }}</span>
-        </a>
-    </li>
-
-    <li class="nav-item {{ Route::current()->getName()=='teacher.complaint.index' ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('teacher.complaint.index') }}">
-            <i class="bi bi-chat-square-dots-fill fa-graduation-cap"></i>
-            <span>{{ __('Complaint') }}</span>
+            <span>{{ __('Absensi') }}</span>
         </a>
     </li>
 
     <li class="nav-item {{ Route::current()->getName()=='teacher.journal.index' ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('teacher.journal.index') }}">
             <i class="bi bi-book-fill fa-graduation-cap"></i>
-            <span>{{ __('Journal') }}</span>
+            <span>{{ __('Jurnal') }}</span>
+        </a>
+    </li>
+
+    <li class="nav-item {{ Route::current()->getName()=='teacher.report.index' ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('teacher.report.index') }}">
+            <i class="bi bi-bookmarks-fill fa-graduation-cap"></i>
+            <span>{{ __('Laporan Magang') }}</span>
+        </a>
+    </li>
+    
+    <li class="nav-item {{ Route::current()->getName()=='teacher.complaint.index' ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('teacher.complaint.index') }}">
+            <i class="bi bi-chat-square-dots-fill fa-graduation-cap"></i>
+            <span>{{ __('Pengaduan') }}</span>
         </a>
     </li>
 
     <li class="nav-item {{ Route::current()->getName()=='teacher.monitoring.index' ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('teacher.monitoring.index') }}">
-            <i class="bi bi-display fa-graduation-cap"></i>
-            <span>{{ __('Monitoring') }}</span>
-        </a>
-    </li>
-        
-    <li class="nav-item {{ Route::current()->getName()=='teacher.report.index' ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('teacher.report.index') }}">
-            <i class="bi bi-bookmarks-fill fa-graduation-cap"></i>
-            <span>{{ __('Report') }}</span>
-=======
-    <li class="nav-item {{ Route::current()->getName()=='teacher.profile' ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('teacher.profile') }}">
-            <i class="fas fa-fw fa-user"></i>
-            <span>{{ __('Profile') }}</span>
->>>>>>> cc7d2dd91c095888e723f4b0999817ae3652d345
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <span>{{ __('Siswa') }}</span>
         </a>
     </li>
 
     {{-- INSTANCE SIDE BAR--}}
     @elseif(auth()->user()->role == 'instance')
 
-    <li class="nav-item {{ Route::current()->getName()=='instance.complaint.index' ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('instance.complaint.index') }}">
-            <i class="bi bi-chat-square-dots-fill fa-graduation-cap"></i>
-            <span>{{ __('Complaint') }}</span>
-        </a>
-    </li>
-
     <li class="nav-item {{ Route::current()->getName()=='instance.journal.index' ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('instance.journal.index') }}">
             <i class="bi bi-book-fill fa-graduation-cap"></i>
-            <span>{{ __('Journal') }}</span>
+            <span>{{ __('Jurnal') }}</span>
+        </a>
+    </li>
+
+    <li class="nav-item {{ Route::current()->getName()=='instance.complaint.index' ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('instance.complaint.index') }}">
+            <i class="bi bi-chat-square-dots-fill fa-graduation-cap"></i>
+            <span>{{ __('Pengaduan') }}</span>
         </a>
     </li>
 
     <li class="nav-item {{ Route::current()->getName()=='instance.monitoring.index' ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('instance.monitoring.index') }}">
-            <i class="bi bi-display fa-graduation-cap"></i>
-            <span>{{ __('Monitoring') }}</span>
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <span>{{ __('Siswa') }}</span>
         </a>
     </li>
     @else

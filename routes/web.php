@@ -8,7 +8,6 @@ use App\Http\Controllers\Admin\AdminStudentController;
 use App\Http\Controllers\Admin\AdminProfileController;
 
 use App\Http\Controllers\Instance\InstanceProfileController;
-<<<<<<< HEAD
 use App\Http\Controllers\Instance\InstanceComplaintController;
 use App\Http\Controllers\Instance\InstanceJournalController;
 use App\Http\Controllers\Instance\InstanceMonitoringController;
@@ -19,11 +18,6 @@ use App\Http\Controllers\Teacher\TeacherJournalController;
 use App\Http\Controllers\Teacher\TeacherMonitoringController;
 use App\Http\Controllers\Teacher\TeacherProfileController;
 use App\Http\Controllers\Teacher\TeacherReportController;
-=======
-
-use App\Http\Controllers\Teacher\TeacherProfileController;
-
->>>>>>> cc7d2dd91c095888e723f4b0999817ae3652d345
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -56,14 +50,11 @@ Route::middleware(['auth','user-access:super'])->group(function () {
     Route::put('/admin/profile', [AdminProfileController::class, 'update'])->name('admin.profile.update');
 });
 
-<<<<<<< HEAD
-=======
 Route::middleware(['auth','user-access:teacher'])->group(function(){
     Route::get('/teacher/profile', [TeacherProfileController::class,'index'])->name('teacher.profile');
     Route::put('/teacher/profile', [TeacherProfileController::class, 'update'])->name('teacher.profile.update');
 });
 
->>>>>>> cc7d2dd91c095888e723f4b0999817ae3652d345
 Route::middleware(['auth','user-access:instance'])->group(function(){
     Route::get('/instance/profile', [InstanceProfileController::class,'index'])->name('instance.profile');
     Route::put('/instance/profile', [InstanceProfileController::class, 'update'])->name('instance.profile.update');

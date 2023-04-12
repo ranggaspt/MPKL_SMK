@@ -17,16 +17,14 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('teacher_id');
             $table->unsignedBigInteger('instance_id');
-            $table->string('name_instance');
-            $table->string('address_instance');
-            $table->string('name_teacher');
-            $table->string('name_student');
-            $table->string('complaint_message');
+            $table->unsignedBigInteger('student_id');
+            $table->string('message_complaint');
             $table->string('validation_message')->default('proses');
             $table->timestamps();
 
-            $table->foreign('instance_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
+            $table->foreign('instance_id')->references('id')->on('instances')->onDelete('cascade');
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
         });
     }
 

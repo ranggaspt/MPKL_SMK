@@ -28,9 +28,9 @@ class Instance extends Model
         return $this->belongsTo('App\Models\Teacher');
     }
     
-    public function complaintI(){
-        return $this->belongsTo('App\Models\Complaint');
-    }
+    // public function complaintI(){
+    //     return $this->belongsTo('App\Models\Complaint');
+    // }
 
     // public function monitoring(){
     //     return $this->hasMany('App\Models\Student');

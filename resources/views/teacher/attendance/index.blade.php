@@ -3,7 +3,7 @@
 @section('main-content')
 <div class="content">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Attendance</h1>
+        <h1 class="h3 mb-0 text-gray-800">Absensi</h1>
         <a href="{{ route('teacher.attendance.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa fa-plus-circle fa-sm text-white mr-2"></i>Tambah Data</a>
     </div>
     <div class="row">

@@ -117,6 +117,25 @@
                                 </div>
                             </div>
 
+                            <div class="form-group{{ $errors->has('teacher_id') ? ' has-error' : '' }}">
+                                <label for="teacher_id" class="col-md-4 control-label">Teacher</label>
+                                <div>
+                                    <select class="form-control" name="teacher_id" required>
+                                        <option>Pilih Guru Pembimbing</option>
+                                        @forelse ($teachers as $teacher)
+                                        <option value="{{$teacher->id}}">{{$teacher->name}}</option>
+                                        @empty
+                                        <option value="NULL">Pembimbing belum diinput</option>
+                                        @endforelse
+                                    </select>
+                                    @if ($errors->has('teacher_id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('teacher_id') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
