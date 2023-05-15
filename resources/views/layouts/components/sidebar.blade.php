@@ -108,20 +108,8 @@
 
     <li class="nav-item {{ Route::current()->getName()=='teacher.monitoring.index' ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('teacher.monitoring.index') }}">
-<<<<<<< HEAD
             <i class="fa fa-users" aria-hidden="true"></i>
             <span>{{ __('Siswa') }}</span>
-=======
-            <i class="bi bi-display fa-graduation-cap"></i>
-            <span>{{ __('Monitoring') }}</span>
-        </a>
-    </li>
-        
-    <li class="nav-item {{ Route::current()->getName()=='teacher.report.index' ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('teacher.report.index') }}">
-            <i class="bi bi-bookmarks-fill fa-graduation-cap"></i>
-            <span>{{ __('Report') }}</span>
->>>>>>> 7ca404342535bf600f22affc4f61a30f7eb8b876
         </a>
     </li>
 

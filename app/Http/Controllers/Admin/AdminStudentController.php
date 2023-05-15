@@ -10,11 +10,8 @@ use App\Models\Student;
 use App\Models\User;
 use App\Models\Classroom;
 use App\Models\Instance;
-<<<<<<< HEAD
 use App\Models\Teacher;
 use Maatwebsite\Excel\Facades\Excel;
-=======
->>>>>>> 7ca404342535bf600f22affc4f61a30f7eb8b876
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;

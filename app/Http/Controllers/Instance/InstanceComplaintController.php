@@ -16,7 +16,7 @@ class InstanceComplaintController extends Controller
 {
     public function index()
     {
-        $complaints = Complaint::all();
+        $complaints = Complaint::where('instance_id',"=",Auth::user()->instance->id)->get();
         $this->data['complaint'] = $complaints;
         return view('instance.complaint.index', $this->data);
     }

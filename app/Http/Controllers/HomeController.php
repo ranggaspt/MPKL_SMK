@@ -34,6 +34,8 @@ class HomeController extends Controller
             return view('instance.home');
         }elseif(auth()->user()->role == 'student'){
             return view('student.home');
+        }elseif(auth()->user()->role == 'participant'){
+            return view('home');
         }
     }
     

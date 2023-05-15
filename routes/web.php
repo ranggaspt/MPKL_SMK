@@ -52,14 +52,6 @@ Route::middleware(['auth','user-access:super'])->group(function () {
     Route::put('/admin/profile', [AdminProfileController::class, 'update'])->name('admin.profile.update');
 });
 
-<<<<<<< HEAD
-Route::middleware(['auth','user-access:teacher'])->group(function(){
-    Route::get('/teacher/profile', [TeacherProfileController::class,'index'])->name('teacher.profile');
-    Route::put('/teacher/profile', [TeacherProfileController::class, 'update'])->name('teacher.profile.update');
-});
-
-=======
->>>>>>> 7ca404342535bf600f22affc4f61a30f7eb8b876
 Route::middleware(['auth','user-access:instance'])->group(function(){
     Route::get('/instance/profile', [InstanceProfileController::class,'index'])->name('instance.profile');
     Route::put('/instance/profile', [InstanceProfileController::class, 'update'])->name('instance.profile.update');
@@ -73,6 +65,8 @@ Route::middleware(['auth','user-access:teacher'])->group(function(){
     Route::put('/teacher/profile', [TeacherProfileController::class, 'update'])->name('teacher.profile.update');
     Route::resource('teacher/attendance', TeacherAttendanceController::class)->names('teacher.attendance');
     Route::resource('teacher/complaint', TeacherComplaintController::class)->names('teacher.complaint');
+    Route::get('teacher/complaint/terima/{id}', [TeacherComplaintController::class,'terima'])->name('teacher.complaint.terima');
+    Route::get('teacher/complaint/tolak/{id}', [TeacherComplaintController::class,'tolak'])->name('teacher.complaint.tolak');
     Route::resource('teacher/journal', TeacherJournalController::class)->names('teacher.journal');
     Route::resource('teacher/monitoring', TeacherMonitoringController::class)->names('teacher.monitoring');
     Route::resource('teacher/report', TeacherReportController::class)->names('teacher.report');

@@ -35,8 +35,14 @@
                                     <td>{{ $complaints->message_complaint }}</td>
                                     <td>
                                         @if ($complaints->validation_message == 'proses')
-                                        <button type="button" class="btn btn-success" >Terima</button>
-                                        <button type="button" class="btn btn-danger" >Tolak</button>
+                                        {{-- <button type="button" class="btn btn-success" >Terima</button>
+                                        <button type="button" class="btn btn-danger" >Tolak</button> --}}
+                                        <a href="{{ route('teacher.complaint.terima', Crypt::encrypt($complaints->id)) }}" class="btn btn-sm btn-success">
+                                            Terima
+                                        </a>
+                                        <a href="{{ route('teacher.complaint.tolak', Crypt::encrypt($complaints->id)) }}" class="btn btn-sm btn-danger">
+                                            Tolak
+                                        </a>
                                         @elseif($complaints->validation_message == 'terima')
                                         <button type="button" class="btn btn-success" disabled>Terima</button>
                                         @elseif($complaints->validation_message == 'tolak')
