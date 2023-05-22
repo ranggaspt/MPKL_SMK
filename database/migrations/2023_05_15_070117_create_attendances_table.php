@@ -16,6 +16,11 @@ return new class extends Migration
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('student_id');
+            $table->decimal('latitude', 12,5);
+            $table->decimal('longitude', 12,5);
+            $table->date('tanggal');
+            $table->time('masuk');
+            $table->time('pulang');
             $table->timestamps();
         });
     }

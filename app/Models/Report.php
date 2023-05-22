@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Report extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'student_id',
+        'teacher_id',
+        'description',
+        'file',
+    ];
+
+    public function teacher(){
+        return $this->belongsTo('App\Models\Teacher');
+    }
+
+    public function student(){
+        return $this->belongsTo('App\Models\Student');
+    }
+
 }

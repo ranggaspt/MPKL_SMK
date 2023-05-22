@@ -15,8 +15,17 @@ return new class extends Migration
     {
         Schema::create('journals', function (Blueprint $table) {
             $table->id();
-            // $table->
+            $table->unsignedBigInteger('teacher_id');
+            $table->unsignedBigInteger('student_id');
+            $table->unsignedBigInteger('instance_id');
+            $table->string('list_jurnals');
+            $table->string('photo')->nullable();
+            $table->string('validation_jurnal')->default('proses');
             $table->timestamps();
+
+            $table->foreign('instance_id')->references('id')->on('instances')->onDelete('cascade');
+            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
         });
     }
 

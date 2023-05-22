@@ -72,4 +72,6 @@ Route::middleware(['auth','user-access:teacher'])->group(function(){
     Route::resource('teacher/report', TeacherReportController::class)->names('teacher.report');
 });
 
+// Route::apiResource('/api/journal', App\Http\Controllers\API\JournalApiController::class);
+
 
