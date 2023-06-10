@@ -20,7 +20,6 @@
                             <thead>
                                 <tr>
                                     <th style="width: 5%">No</th>
-                                    {{-- <th>Nama Instansi</th> --}}
                                     <th>Nama Pembimbing Guru</th>
                                     <th>Nama Siswa</th>
                                     <th>Deskripsi Pengaduan</th>

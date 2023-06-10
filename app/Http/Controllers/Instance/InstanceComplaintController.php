@@ -74,6 +74,6 @@ class InstanceComplaintController extends Controller
             // $user->delete();
             alert()->success('Success', 'Data Berhasil Dihapus');
         }
-        return redirect('instance.complaint.index');
+        return redirect('instance/complaint');
     }
 }

@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div> --}}
-            <div class="col-lg-8 order-lg-1">
+            <div class="col-lg-12 order-lg-1">
                 <div class="card shadow mb-4">
                     <div class="card-header">
                         <h4 class="m-0 font-weight-bold text-white">Tambah Pengaduan</h4>

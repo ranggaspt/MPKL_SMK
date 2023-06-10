@@ -72,7 +72,6 @@ Route::middleware(['auth','user-access:teacher'])->group(function(){
     Route::resource('teacher/journal', TeacherJournalController::class)->names('teacher.journal');
     Route::resource('teacher/monitoring', TeacherMonitoringController::class)->names('teacher.monitoring');
     Route::resource('teacher/report', TeacherReportController::class)->names('teacher.report');
-    // Route::get('teacher/report/download/{$id}', [DownloadReportController::class, 'downloadFile']);
     Route::get('teacher/report/download/{file}',[DownloadReportController::class, 'download'])->name('download');
 });
 
