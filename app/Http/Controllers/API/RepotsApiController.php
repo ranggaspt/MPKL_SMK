@@ -7,17 +7,20 @@ use App\Http\Resources\ReportsResource;
 use App\Models\Report;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RepotsApiController extends Controller
 {
     public function index()
     {
-        //get posts
-        $report = Report::latest()->paginate(5);
-
-        //return collection of report as a resource
-        return new ReportsResource(true, 'List Data Report', $report);
-    }
+        $reports = Report::where('student_id', Auth::user()->student->id)
+        ->get();
+    return response()->json([
+        'success' => true,
+        'data' => $reports,
+        'message' => 'Sukses menampilkan data'
+    ]);
+}
 
     public function store(Request $request)
     {
@@ -39,6 +42,8 @@ class RepotsApiController extends Controller
         //create post
         $report = Report::create([
             'file' => $file->hashName(),
+            'student_id' => Auth::user()->student->id,
+            'teacher_id' => Auth::user()->student->teacher_id,
             'description' => $request->description,
         ]);
 

@@ -28,4 +28,13 @@ Route::post('/login', [AuthApiController::class, 'login']);
 Route::middleware(['auth:sanctum', 'user-access:student'])->group(function () {
     Route::apiResource('/journal', App\Http\Controllers\API\JournalApiController::class);
     Route::apiResource('/report', App\Http\Controllers\API\RepotsApiController::class);
+    Route::get('/get-presensi',  [App\Http\Controllers\API\AttendancesApiController::class, 'getPresensis']);
+    Route::get('/profile',  [App\Http\Controllers\API\ProfileApiController::class, 'index']);
+    Route::post('save-presensi', [App\Http\Controllers\API\AttendancesApiController::class, 'savePresensi']);
+    Route::post('/logout', [App\Http\Controllers\API\AuthApiController::class, 'logout']);
 });
+
+
+
+
+

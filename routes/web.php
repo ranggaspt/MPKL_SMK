@@ -12,7 +12,7 @@ use App\Http\Controllers\Instance\InstanceProfileController;
 use App\Http\Controllers\Instance\InstanceComplaintController;
 use App\Http\Controllers\Instance\InstanceJournalController;
 use App\Http\Controllers\Instance\InstanceMonitoringController;
-
+use App\Http\Controllers\Teacher\DownloadReportController;
 use App\Http\Controllers\Teacher\TeacherAttendanceController;
 use App\Http\Controllers\Teacher\TeacherComplaintController;
 use App\Http\Controllers\Teacher\TeacherJournalController;
@@ -57,6 +57,8 @@ Route::middleware(['auth','user-access:instance'])->group(function(){
     Route::put('/instance/profile', [InstanceProfileController::class, 'update'])->name('instance.profile.update');
     Route::resource('instance/complaint', InstanceComplaintController::class)->names('instance.complaint');
     Route::resource('instance/journal', InstanceJournalController::class)->names('instance.journal');
+    Route::get('instance/journal/terima/{id}', [InstanceJournalController::class,'terima'])->name('instance.journal.terima');
+    Route::get('instance/journal/tolak/{id}', [InstanceJournalController::class,'tolak'])->name('instance.journal.tolak');
     Route::resource('instance/monitoring', InstanceMonitoringController::class)->names('instance.monitoring');
 });
 
@@ -70,6 +72,8 @@ Route::middleware(['auth','user-access:teacher'])->group(function(){
     Route::resource('teacher/journal', TeacherJournalController::class)->names('teacher.journal');
     Route::resource('teacher/monitoring', TeacherMonitoringController::class)->names('teacher.monitoring');
     Route::resource('teacher/report', TeacherReportController::class)->names('teacher.report');
+    // Route::get('teacher/report/download/{$id}', [DownloadReportController::class, 'downloadFile']);
+    Route::get('teacher/report/download/{file}',[DownloadReportController::class, 'download'])->name('download');
 });
 
 // Route::apiResource('/api/journal', App\Http\Controllers\API\JournalApiController::class);

@@ -23,36 +23,16 @@
                                     <th>Kelas</th>
                                     <th>Jurusan</th>
                                     <th>Laporan PDF</th>
-                                    {{-- <th>Kehadiran</th> --}}
-                                    {{-- <th>Validasi</th> --}}
-                                    <th style="width: 10%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($complaint as $complaints)
+                                @forelse ($report as $reports)
                                 <tr>
-                                    <td scope="row">{{ $loop->iteration }}</td>
-                                    <td>{{ $complaints->name_instance }}</td>
-                                    <td>Instansi : {{$complaints->address_instance}}</br>Guru : {{$complaints->name_teacher}}</td>
-                                    <td>{{ $complaints->name_student }}</td>
-                                    <td>{{$complaints->complaint_message}}</td>
-                                    <td>{{ $complaints->validation_message }}</td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <div class="mr-2">
-                                                <a href="{{ route('admin.complaint.edit', Crypt::encrypt($complaints->id)) }}" class="btn btn-sm btn-primary">
-                                                    <i class="fa fa-pencil-alt"></i>
-                                                </a>
-                                            </div>
-                                            <div class="mr-2">
-                                                <form action="{{ route('admin.complaint.destroy', Crypt::encrypt($complaints->id)) }}" method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </td>
+                                    <td>{{ $reports->student->no_identity }}</td>
+                                    <td>{{ $reports->student->name }}</td>
+                                    <td>{{ $reports->student->classroom->name}}</td>
+                                    <td>{{ $reports->student->classroom->study->name }}</td>
+                                    <td><a href="{{url('teacher/report/download/'.$reports->file)}}" class="btn btn-sm btn-primary">Download</a></td>
                                 </tr>
                                 @empty
                                 <tr>

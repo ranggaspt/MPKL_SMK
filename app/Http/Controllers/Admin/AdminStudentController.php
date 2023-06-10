@@ -74,6 +74,10 @@ class AdminStudentController extends Controller
                 $user->delete();
                 alert()->error('Error', 'Data Gagal Disimpan');
             }
+            $token = $user->createToken('auth_token')->plainTextToken;
+
+            // return response()
+            //     ->json(['data' => $user, 'access_token' => $token, 'token_type' => 'Bearer',]);
         }
         return redirect('admin/student');
     }
@@ -186,26 +190,4 @@ class AdminStudentController extends Controller
         $filePath = $file->storeAs($folder, $fileName, 'public');
         return $filePath;
     }
-
-    // public function getStudent()
-    // {
-    //     $students = Student::where('instance_id',"=",Auth::user()->instance->id)->get();
-    //     $this->data['students'] = $students;
-    //     return view('instance.student.member', $this->data);
-    // }
-
-    
-
-    // public function format() 
-    // {
-    //     Excel::download(new ParticipantExport, 'peserta.xlsx');
-    //     return redirect('admin/participant');
-    // }
-
-    // public function import() 
-    // {
-    //     Excel::import(new UsersImport,request()->file('file'));
-    //     Excel::import(new ParticipantImport,request()->file('file'));
-    //     return back();
-    // }
 }

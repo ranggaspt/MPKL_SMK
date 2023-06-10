@@ -4,7 +4,7 @@
 <div class="content">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Jurnal</h1>
-        {{-- <a href="{{ route('instance.complaint.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa fa-plus-circle fa-sm text-white mr-2"></i>Tambah Data</a> --}}
+        {{-- <a href="{{ route('instance.journal.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa fa-plus-circle fa-sm text-white mr-2"></i>Tambah Data</a> --}}
     </div>
     <div class="row">
         <div class="col-lg-12">
@@ -22,36 +22,35 @@
                                     <th>Nama Siswa</th>
                                     <th>Kelas</th>
                                     <th>Jurusan</th>
-                                    <th>Instansi</th>
+                                    <th>Guru Pembimbing</th>
                                     <th>List Kerjaan</th>
                                     <th>Validasi</th>
-                                    <th style="width: 10%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($complaint as $complaints)
+                                @forelse ($journal as $journals)
                                 <tr>
                                     <td scope="row">{{ $loop->iteration }}</td>
-                                    <td>{{ $complaints->name_instance }}</td>
-                                    <td>Instansi : {{$complaints->address_instance}}</br>Guru : {{$complaints->name_teacher}}</td>
-                                    <td>{{ $complaints->name_student }}</td>
-                                    <td>{{$complaints->complaint_message}}</td>
-                                    <td>{{ $complaints->validation_message }}</td>
+                                    <td>{{ $journals->student->name }}</td>
+                                    <td>{{ $journals->student->classroom->name}}</td>
+                                    <td>{{ $journals->student->classroom->study->name }}</td>
+                                    <td>Guru : {{$journals->teacher->name}}</br>Phone : {{$journals->teacher->phone}}</td>
+                                    <td>{{ $journals->list_jurnals }}</td>
                                     <td>
-                                        {{-- <div class="d-flex">
-                                            <div class="mr-2">
-                                                <a href="{{ route('admin.complaint.edit', Crypt::encrypt($complaints->id)) }}" class="btn btn-sm btn-primary">
-                                                    <i class="fa fa-pencil-alt"></i>
-                                                </a>
-                                            </div>
-                                            <div class="mr-2">
-                                                <form action="{{ route('admin.complaint.destroy', Crypt::encrypt($complaints->id)) }}" method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></button>
-                                                </form>
-                                            </div>
-                                        </div> --}}
+                                        @if ($journals->validation_jurnal == 'proses')
+                                        {{-- <button type="button" class="btn btn-success" >Terima</button>
+                                        <button type="button" class="btn btn-danger" >Tolak</button> --}}
+                                        <a href="{{ route('instance.journal.terima', Crypt::encrypt($journals->id)) }}" class="btn btn-sm btn-success">
+                                            Terima
+                                        </a>
+                                        <a href="{{ route('instance.journal.tolak', Crypt::encrypt($journals->id)) }}" class="btn btn-sm btn-danger">
+                                            Tolak
+                                        </a>
+                                        @elseif($journals->validation_jurnal == 'terima')
+                                        <button type="button" class="btn btn-success" disabled>Terima</button>
+                                        @elseif($journals->validation_jurnal == 'tolak')
+                                        <button type="button" class="btn btn-danger" disabled>Tolak</button>
+                                        @endif
                                     </td>
                                 </tr>
                                 @empty

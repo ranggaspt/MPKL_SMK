@@ -4,7 +4,9 @@
 <div class="content">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Jurnal</h1>
-        {{-- <a href="{{ route('instance.complaint.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fa fa-plus-circle fa-sm text-white mr-2"></i>Tambah Data</a> --}}
+        {{-- <a href="{{ route('instance.complaint.create') }}"
+            class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fa fa-plus-circle fa-sm text-white mr-2"></i>Tambah Data</a> --}}
     </div>
     <div class="row">
         <div class="col-lg-12">
@@ -23,32 +25,41 @@
                                     <th>Kelas</th>
                                     <th>Jurusan</th>
                                     <th>Instansi</th>
+                                    <th>Di lakukan pada Tanggal</th>
                                     <th>List Kerjaan</th>
                                     <th>Validasi</th>
                                     {{-- <th style="width: 10%">Aksi</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($complaint as $complaints)
+                                @forelse ($journal as $journals)
                                 <tr>
                                     <td scope="row">{{ $loop->iteration }}</td>
-                                    <td>{{ $complaints->name_instance }}</td>
-                                    <td>Instansi : {{$complaints->address_instance}}</br>Guru : {{$complaints->name_teacher}}</td>
-                                    <td>{{ $complaints->name_student }}</td>
-                                    <td>{{$complaints->complaint_message}}</td>
-                                    <td>{{ $complaints->validation_message }}</td>
+                                    <td>{{ $journals->student->name }}</td>
+                                    <td>{{ $journals->student->classroom->name}}</td>
+                                    <td>{{ $journals->student->classroom->study->name }}</td>
+                                    <td>Instansi : {{$journals->instance->instance_name}}</br>Pembimbing :
+                                        {{$journals->instance->name}}</td>
+                                    <td>{{ $journals->created_at}}</td>
+                                    <td>{{ $journals->list_jurnals }}</td>
+                                    <td>{{ $journals->validation_jurnal }}</td>
                                     {{-- <td>
                                         <div class="d-flex">
                                             <div class="mr-2">
-                                                <a href="{{ route('admin.complaint.edit', Crypt::encrypt($complaints->id)) }}" class="btn btn-sm btn-primary">
+                                                <a href="{{ route('admin.complaint.edit', Crypt::encrypt($complaints->id)) }}"
+                                                    class="btn btn-sm btn-primary">
                                                     <i class="fa fa-pencil-alt"></i>
                                                 </a>
                                             </div>
                                             <div class="mr-2">
-                                                <form action="{{ route('admin.complaint.destroy', Crypt::encrypt($complaints->id)) }}" method="post">
+                                                <form
+                                                    action="{{ route('admin.complaint.destroy', Crypt::encrypt($complaints->id)) }}"
+                                                    method="post">
                                                     @csrf
                                                     @method('delete')
-                                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></button>
+                                                    <button type="submit" class="btn btn-sm btn-danger"
+                                                        onclick="return confirm('Anda yakin ingin menghapus data ini?')"><i
+                                                            class="fa fa-trash"></i></button>
                                                 </form>
                                             </div>
                                         </div>

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('student_id');
             $table->unsignedBigInteger('instance_id');
             $table->string('list_jurnals');
-            $table->string('photo')->nullable();
+            $table->date('tanggal');
             $table->string('validation_jurnal')->default('proses');
             $table->timestamps();
 
