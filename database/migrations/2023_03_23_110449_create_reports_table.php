@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('teacher_id')->nullable();
             $table->unsignedBigInteger('student_id')->nullable();
             $table->string('description');
+            $table->date('tanggal');
             $table->string('file');
             $table->timestamps();
 

@@ -45,7 +45,10 @@ class RepotsApiController extends Controller
             'student_id' => Auth::user()->student->id,
             'teacher_id' => Auth::user()->student->teacher_id,
             'description' => $request->description,
+            'tanggal' => date('Y-m-d'),
         ]);
+        $report = Report::whereDate('tanggal', '=', date('Y-m-d'))
+                ->first();
 
         //return response
         return new ReportsResource(true, 'Data laporan magang Berhasil Ditambahkan!', $report);

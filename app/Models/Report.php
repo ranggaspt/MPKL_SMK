@@ -13,6 +13,7 @@ class Report extends Model
         'student_id',
         'teacher_id',
         'description',
+        'tanggal',
         'file',
     ];
 

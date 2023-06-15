@@ -40,9 +40,12 @@ class JournalApiController extends Controller
             'teacher_id' => Auth::user()->student->teacher_id,
             'instance_id' => Auth::user()->student->instance_id,
             'list_jurnals' => $request->list_jurnals,
+            'tanggal' => date('Y-m-d'),
             'validation_jurnal' => "proses",
         ]);
         // }
+        $journal = Journal::whereDate('tanggal', '=', date('Y-m-d'))
+                ->first();
 
         return response()->json([
             'success' => true,

@@ -14,7 +14,7 @@ class Journal extends Model
         'instance_id',
         'teacher_id',
         'list_jurnals',
-        'photo',
+        'tanggal',
         'validation_jurnal',
     ];
 

@@ -21,8 +21,8 @@
                                     <th>Kelas</th>
                                     <th>Jurusan</th>
                                     <th>Instansi</th>
-                                    {{-- {{-- <th>Kehadiran</th> --}}
-                                    <th>Aksi</th> 
+                                    <th>Kehadiran</th>
+                                    <th>Lokasi</th> 
                                 </tr>
                             </thead>
                             <tbody>
@@ -32,15 +32,12 @@
                                     <td>{{ $attendances->student->name }}</td>
                                     <td>{{ $attendances->student->classroom->name}}</td>
                                     <td>{{ $attendances->student->classroom->study->name }}</td>
-                                    <td>Instansi : {{$attendances->student->instance->instance_name}}</br>Pembimbing :
-                                        {{$attendances->student->instance->name}}
+                                    <td>Instansi : {{$attendances->instance->instance_name}}</br>Pembimbing :
+                                        {{$attendances->instance->name}}
                                     </td>
-                                    <td>
-                                        <a href="{{ route('teacher.attendance.show', $attendances->student->id) }}" class="btn btn-sm btn-dark">SHOW</a>
+                                    <td>tanggal : {{$attendances->tanggal}}</br>Masuk :
+                                        {{$attendances->masuk}}</br>Pulang : {{$attendances->pulang}}
                                     </td>
-                                    {{-- <td>{{$attendances->student->id}}</td> --}}
-                                    {{-- <td>tanggal : {{$attendances->tanggal}}</br>Masuk :
-                                        {{$attendances->masuk}}</br>Pulang : {{$attendances->pulang}}</td> --}}
                                     {{-- <td> --}}
 
                                         {{-- <img
@@ -48,9 +45,9 @@
                                             alt="Map"> --}}
                                         {{-- latitude : {{$attendances->latitude}}</br>longitude :
                                         {{$attendances->longitude}} --}}
-                                        {{--
+                                        
                                     <td>Latitude : {{$attendances->latitude}}</br>Longitude :
-                                        {{$attendances->longitude}}</td> --}}
+                                        {{$attendances->longitude}}</td>
                                     {{-- </td> --}}
 
                                 </tr>
