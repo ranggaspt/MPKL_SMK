@@ -40,6 +40,8 @@ class RepotsApiController extends Controller
         $file->storeAs('public/report', $file->hashName());
 
         //create post
+        $report = Report::whereDate('tanggal', '=', date('Y-m-d'))
+                ->first();
         $report = Report::create([
             'file' => $file->hashName(),
             'student_id' => Auth::user()->student->id,
@@ -47,8 +49,8 @@ class RepotsApiController extends Controller
             'description' => $request->description,
             'tanggal' => date('Y-m-d'),
         ]);
-        $report = Report::whereDate('tanggal', '=', date('Y-m-d'))
-                ->first();
+        // $report = Report::whereDate('tanggal', '=', date('Y-m-d'))
+        //         ->first();
 
         //return response
         return new ReportsResource(true, 'Data laporan magang Berhasil Ditambahkan!', $report);

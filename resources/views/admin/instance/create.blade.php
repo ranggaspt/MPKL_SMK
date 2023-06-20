@@ -74,7 +74,7 @@
                                 <label for="teacher_id" class="col-md-4 control-label">Guru Pembimbing</label>
                                 <div>
                                     <select class="form-control" name="teacher_id" required>
-                                        <option>Pilih Guru Pembimbing</option>
+                                        <option value="">Pilih Guru Pembimbing</option>
                                         @forelse ($teachers as $teacher)
                                         <option value="{{$teacher->id}}">{{$teacher->name}}</option>
                                         @empty

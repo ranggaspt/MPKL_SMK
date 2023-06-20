@@ -28,16 +28,19 @@ class Instance extends Model
         return $this->belongsTo('App\Models\Teacher');
     }
     
-    // public function complaintI(){
-    //     return $this->belongsTo('App\Models\Complaint');
-    // }
-
-    // public function monitoring(){
-    //     return $this->hasMany('App\Models\Student');
-    // }
-
-    // public function packages(){
-    //     return $this->hasMany('App\Models\Package');
-    // }
+    public function studentCount()
+    {
+        return $this->hasMany(Student::class)->count();
+    }
     
+    public function journalCount()
+    {
+        return $this->hasMany(Journal::class)->count();
+    }
+
+    public function complaintCount()
+    {
+        return $this->hasMany(Complaint::class)->count();
+    }
+
 }

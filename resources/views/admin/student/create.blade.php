@@ -59,11 +59,19 @@
                                 @endif
                             </div>
                             <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
-                                <label for="dender" class="col-md-4 control-label">Jenis Kelamin</label>
-                                <select class="form-control" name="gender">
-                                    <option value="laki-laki">Laki - Laki</option>
-                                    <option value="perempuan">Perempuan</option>
-                                </select>
+                                <label for="gender" class="col-md-4 control-label">Jenis Kelamin</label>
+                                <div>
+                                    <select class="form-control" name="gender">
+                                        <option value="">Pilih Jenis Kelamin</option>
+                                        <option value="laki-laki">Laki - Laki</option>
+                                        <option value="perempuan">Perempuan</option>
+                                    </select>
+                                    @if ($errors->has('gender'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('gender') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-12">
@@ -83,7 +91,7 @@
                                 <label for="classroom_id" class="col-md-4 control-label">Kelas</label>
                                 <div>
                                     <select class="form-control" name="classroom_id" required>
-                                        <option>Pilih Kelas</option>
+                                        <option value="">Pilih Kelas</option>
                                         @forelse ($classrooms as $classroom)
                                         <option value="{{$classroom->id}}">{{$classroom->name}}</option>
                                         @empty
@@ -102,7 +110,7 @@
                                 <label for="instance_id" class="col-md-4 control-label">Instansi</label>
                                 <div>
                                     <select class="form-control" name="instance_id" required>
-                                        <option>Pilih Instansi</option>
+                                        <option value="">Pilih Instansi</option>
                                         @forelse ($instances as $instance)
                                         <option value="{{$instance->id}}">{{$instance->instance_name}}</option>
                                         @empty
@@ -121,7 +129,7 @@
                                 <label for="teacher_id" class="col-md-4 control-label">Teacher</label>
                                 <div>
                                     <select class="form-control" name="teacher_id" required>
-                                        <option>Pilih Guru Pembimbing</option>
+                                        <option value="">Pilih Guru Pembimbing</option>
                                         @forelse ($teachers as $teacher)
                                         <option value="{{$teacher->id}}">{{$teacher->name}}</option>
                                         @empty

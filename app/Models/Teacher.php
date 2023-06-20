@@ -22,12 +22,26 @@ class Teacher extends Model
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
-    
-    // public function complaint(){
-    //     return $this->belongsTo('App\Models\Complaint');
-    // }
 
-    // public function packages(){
-    //     return $this->hasMany('App\Models\Package');
-    // }
+    public function attendanceCount()
+    {
+        return $this->hasMany(Attendance::class)->count();
+    }
+    public function reportCount()
+    {
+        return $this->hasMany(Report::class)->count();
+    }
+    public function complaintCount()
+    {
+        return $this->hasMany(Complaint::class)->count();
+    }
+    public function journalCount()
+    {
+        return $this->hasMany(Journal::class)->count();
+    }
+    public function studentCount()
+    {
+        return $this->hasMany(Student::class)->count();
+    }
+    
 }
