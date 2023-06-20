@@ -42,11 +42,12 @@ class RepotsApiController extends Controller
         //create post
         
         $report = Report::create([
-            'file' => $file->hashName(),
+            
             'student_id' => Auth::user()->student->id,
             'teacher_id' => Auth::user()->student->teacher_id,
             'description' => $request->description,
             'tanggal' => date('Y-m-d'),
+            'file' => $file->hashName(),
         ]);
         $report = Report::whereDate('tanggal', '=', date('Y-m-d'))
                 ->first();
