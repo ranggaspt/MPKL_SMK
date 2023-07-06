@@ -12,7 +12,9 @@ use App\Http\Controllers\Instance\InstanceProfileController;
 use App\Http\Controllers\Instance\InstanceComplaintController;
 use App\Http\Controllers\Instance\InstanceJournalController;
 use App\Http\Controllers\Instance\InstanceMonitoringController;
+use App\Http\Controllers\Instance\InstanceGradeController;
 use App\Http\Controllers\Teacher\DownloadReportController;
+
 use App\Http\Controllers\Teacher\TeacherAttendanceController;
 use App\Http\Controllers\Teacher\TeacherComplaintController;
 use App\Http\Controllers\Teacher\TeacherJournalController;
@@ -60,6 +62,7 @@ Route::middleware(['auth','user-access:instance'])->group(function(){
     Route::get('instance/journal/terima/{id}', [InstanceJournalController::class,'terima'])->name('instance.journal.terima');
     Route::get('instance/journal/tolak/{id}', [InstanceJournalController::class,'tolak'])->name('instance.journal.tolak');
     Route::resource('instance/monitoring', InstanceMonitoringController::class)->names('instance.monitoring');
+    Route::resource('instance/grade', InstanceGradeController::class)->names('instance.grade');
 });
 
 Route::middleware(['auth','user-access:teacher'])->group(function(){
