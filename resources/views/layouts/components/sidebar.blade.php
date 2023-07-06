@@ -136,6 +136,14 @@
             <span>{{ __('Siswa') }}</span>
         </a>
     </li>
+
+    <li class="nav-item {{ Route::current()->getName()=='instance.grade.index' ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('instance.grade.index') }}">
+            <i class="bi fa-graduation-cap"></i>
+            <span>{{ __('Nilai') }}</span>
+        </a>
+    </li>
+
     @else
     @endif
     <!-- Divider -->
