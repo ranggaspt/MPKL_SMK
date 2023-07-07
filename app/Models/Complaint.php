@@ -21,9 +21,9 @@ class Complaint extends Model
         return $this->belongsTo('App\Models\Teacher');
     }
     public function instance(){
-        return $this->belongsTo('App\Models\instance');
+        return $this->belongsTo('App\Models\Instance');
     }
     public function student(){
-        return $this->belongsTo('App\Models\student');
+        return $this->belongsTo('App\Models\Student');
     }
 }
