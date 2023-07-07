@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('option_3',3);
             $table->string('option_4',3);
             $table->string('option_5',3);
-            $table->string('ratarata',3);
+            $table->double('ratarata');
 
             $table->foreign('instance_id')->references('id')->on('instances')->onDelete('cascade');
             $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
