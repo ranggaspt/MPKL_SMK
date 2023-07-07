@@ -24,6 +24,8 @@
                                     <th>Kualitas Kerja</th>
                                     <th>Inisiatif dan Kreatifitas</th>
                                     <th>Perilaku</th>
+                                    <th>Rata-rata</th>
+                                    <th>Keterangan</th>
                                     <th style="width: 10%">Aksi</th>
                                 </tr>
                             </thead>
@@ -37,6 +39,9 @@
                                     <td>{{ $grade->option_3 }}</td>
                                     <td>{{ $grade->option_4 }}</td>
                                     <td>{{ $grade->option_5 }}</td>
+                                    <td>{{$grade->ratarata}}</td>
+                                    <td>
+                                        @if($grade->ratarata >= 96 && $grade->ratarata <=100) Lulus Istimewa @elseif($grade->ratarata >= 86 && $grade->ratarata <=95) Lulus Sangat Baik @elseif($grade->ratarata >= 76 && $grade->ratarata <=85) Lulus Baik @elseif($grade->ratarata >= 66 && $grade->ratarata <=75) Lulus Cukup @elseif($grade->ratarata >= 56 && $grade->ratarata <=65) Lulus Sedang @elseif( $grade->ratarata <=55) Belum Lulus @endif </td>
                                     <td>
                                         <div class="d-flex">
                                             <div class="mr-2">
@@ -51,12 +56,42 @@
                                                     <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></button>
                                                 </form>
                                             </div>
+                                            <div class='mr-2'>
+                                                <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal">
+                                                    <i class="bi bi-info-circle"></i>
+                                                </button>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Informasi Keterangan Nilai</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>96-100 Lulus istimewa A</p>
+                                                <p>86-95 Lulus sangat baik B</p>
+                                                <p>76-85 Lulus Baik C</p>
+                                                <p>66-75 Lulus cukup D</p>
+                                                <p>56-65 Lulus sedang E</p>
+                                                <p>
+                                                    <=55 belum Lulus K</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 @empty
                                 <tr>
-                                    <td colspan="9">Data Tidak Ditemukan</td>
+                                    <td colspan="10">Data Tidak Ditemukan</td>
                                 </tr>
                                 @endforelse
                             </tbody>
@@ -67,4 +102,12 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('#myModal').on('shown.bs.modal', function() {
+            $('#nama').focus();
+        });
+    });
+</script>
 @endsection

@@ -30,6 +30,7 @@ class GradeRequest extends FormRequest
             'option_3' => 'required|string|max:3',
             'option_4' => 'required|string|max:3',
             'option_5' => 'required|string|max:3',
+            // 'ratarata' => 'required|string|max:3',
         ];
     }
 }

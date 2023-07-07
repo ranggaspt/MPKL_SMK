@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\AdminStudyController;
 use App\Http\Controllers\Admin\AdminStudentController;
 use App\Http\Controllers\Admin\AdminMemberController;
 use App\Http\Controllers\Admin\AdminProfileController;
-
+use App\Http\Controllers\errorcontroller;
 use App\Http\Controllers\Instance\InstanceProfileController;
 use App\Http\Controllers\Instance\InstanceComplaintController;
 use App\Http\Controllers\Instance\InstanceJournalController;
@@ -80,4 +80,9 @@ Route::middleware(['auth','user-access:teacher'])->group(function(){
 
 // Route::apiResource('/api/journal', App\Http\Controllers\API\JournalApiController::class);
 
+Route::fallback(function () {
+    return redirect()->route('error');
+});
+
+Route::get('error', [ErrorController::class, 'index'])->name('error');
 

@@ -17,6 +17,7 @@ class Grade extends Model
         'option_3',
         'option_4',
         'option_5',
+        'ratarata',
     ];
 
     public function teacher(){

@@ -21,7 +21,7 @@ class InstanceGradeController extends Controller
      */
     public function index()
     {
-        $grades = Grade::where('instance_id',"=",Auth::user()->instance->id)->get();
+        $grades = Grade::where('instance_id', "=", Auth::user()->instance->id)->get();
         $this->data['grades'] = $grades;
         return view('instance.grade.index', $this->data);
     }
@@ -33,7 +33,7 @@ class InstanceGradeController extends Controller
      */
     public function create()
     {
-        $student = Student::where('instance_id',"=",Auth::user()->instance->id)->get();
+        $student = Student::where('instance_id', "=", Auth::user()->instance->id)->get();
         $this->data['student'] = $student;
         return view('instance.grade.create', $this->data);
     }
@@ -47,12 +47,22 @@ class InstanceGradeController extends Controller
     public function store(GradeRequest $request)
     {
         $params = $request->all();
-        $params['instance_id'] =auth()->user()->instance->id;
-        $params['teacher_id'] =auth()->user()->instance->teacher_id;
+        $params['instance_id'] = auth()->user()->instance->id;
+        $params['teacher_id'] = auth()->user()->instance->teacher_id;
+        // Hitung nilai rata-rata
+        $nilai1 = $request->input('option_1');
+        $nilai2 = $request->input('option_2');
+        $nilai3 = $request->input('option_3');
+        $nilai4 = $request->input('option_4');
+        $nilai5 = $request->input('option_5');
+
+        $rataRata = ($nilai1 + $nilai2 + $nilai3 + $nilai4 + $nilai5) / 5;
+
+        $params['ratarata'] = $rataRata;
         if (Grade::create($params)) {
-            alert()->success('Success','Data Berhasil Disimpan');
+            alert()->success('Success', 'Data Berhasil Disimpan');
         } else {
-            alert()->error('Error','Data Gagal Disimpan');
+            alert()->error('Error', 'Data Gagal Disimpan');
         }
         return redirect('instance/grade');
     }
@@ -76,8 +86,8 @@ class InstanceGradeController extends Controller
      */
     public function edit($id)
     {
-        
-        $student = Student::where('instance_id',"=",Auth::user()->instance->id)->get();
+
+        $student = Student::where('instance_id', "=", Auth::user()->instance->id)->get();
         $this->data['student'] = $student;
         $grade = Grade::findOrFail(Crypt::decrypt($id));
         $this->data['grades'] = $grade;
@@ -93,7 +103,7 @@ class InstanceGradeController extends Controller
      */
     public function update(GradeRequest $request, $id)
     {
-        $params1 = $request1->all();
+        $params1 = $request->all();
 
         $grade = Grade::findOrFail(Crypt::decrypt($id));
         if ($grade->update($params1)) {
