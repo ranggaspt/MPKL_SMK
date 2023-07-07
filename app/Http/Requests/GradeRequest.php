@@ -25,11 +25,11 @@ class GradeRequest extends FormRequest
     {
         $id = $this->get('id');
         return [
-            'option_1' => 'required|string|max:3',
-            'option_2' => 'required|string|max:3',
-            'option_3' => 'required|string|max:3',
-            'option_4' => 'required|string|max:3',
-            'option_5' => 'required|string|max:3',
+            'option_1' => 'required|string|max:100',
+            'option_2' => 'required|string|max:100',
+            'option_3' => 'required|string|max:100',
+            'option_4' => 'required|string|max:100',
+            'option_5' => 'required|string|max:100',
             // 'ratarata' => 'required|string|max:3',
         ];
     }
