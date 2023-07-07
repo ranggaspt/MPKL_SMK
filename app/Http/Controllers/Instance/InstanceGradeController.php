@@ -104,7 +104,16 @@ class InstanceGradeController extends Controller
     public function update(GradeRequest $request, $id)
     {
         $params1 = $request->all();
+        // Hitung nilai rata-rata
+        $nilai1 = $request->input('option_1');
+        $nilai2 = $request->input('option_2');
+        $nilai3 = $request->input('option_3');
+        $nilai4 = $request->input('option_4');
+        $nilai5 = $request->input('option_5');
 
+        $rataRata = ($nilai1 + $nilai2 + $nilai3 + $nilai4 + $nilai5) / 5;
+
+        $params1['ratarata'] = $rataRata;
         $grade = Grade::findOrFail(Crypt::decrypt($id));
         if ($grade->update($params1)) {
             alert()->success('Success', 'Data Berhasil Disimpan');
