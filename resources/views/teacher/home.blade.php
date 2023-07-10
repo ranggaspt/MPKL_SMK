@@ -39,7 +39,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ auth()->user()->teacher->journalCount() ?? '0' }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="bi bi-chat-square-dots-fill fa-2x text-gray-300"></i>
+                                <i class="bi bi-book-fill fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ auth()->user()->teacher->reportCount() ?? '0' }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="bi bi-book-fill fa-2x text-gray-300"></i>
+                                <i class="bi bi-bookmarks-fill fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ auth()->user()->teacher->complaintCount() ?? '0' }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="bi bi-display fa-2x text-gray-300"></i>
+                                <i class="bi bi-chat-square-dots-fill fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ auth()->user()->teacher->studentCount() ?? '0' }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="bi bi-bookmarks-fill fa-2x text-gray-300"></i>
+                                <i class="fa fa-users" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
