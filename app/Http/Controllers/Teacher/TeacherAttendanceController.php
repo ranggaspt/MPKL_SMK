@@ -9,6 +9,7 @@ use App\Models\Student;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 
 class TeacherAttendanceController extends Controller
 {
@@ -26,9 +27,16 @@ class TeacherAttendanceController extends Controller
 
     public function show(string $id): View
     {
-        $attendance = Attendance::where('student_id', $id)->get();
+        $attendance = Attendance::where('student_id', Crypt::decrypt($id))->get();
 
         $this->data['attendance'] = $attendance;
         return view('teacher.attendance.detail', $this->data);
+    }
+
+    function map(string $id) {
+        // dd(Attendance::findOrFail(Crypt::decrypt($id)));
+        $attendance = Attendance::findOrFail(Crypt::decrypt($id));
+        $this->data['attendances'] = $attendance;
+        return view('teacher.attendance.detailmap', $this->data);
     }
 }

@@ -61,7 +61,9 @@ class AttendancesApiController extends Controller
                 'pulang' => date('H:i:s')
             ];
 
-            Attendance::whereDate('tanggal', '=', date('Y-m-d'))->update($data);
+            Attendance::whereDate('tanggal', '=', date('Y-m-d'))
+            ->where('student_id', Auth::user()->student->id)
+            ->update($data);
 
         }
         $presensi = Attendance::whereDate('tanggal', '=', date('Y-m-d'))
@@ -73,4 +75,21 @@ class AttendancesApiController extends Controller
             'message' => 'Sukses simpan'
         ]);
     }
+
+    // public function checkPresensi(Request $request)
+    // {
+    //     $date = Carbon::now()->toDateString();
+    //     $studentId = $request->input('student_id');
+
+    //     $presensi = Attendance::where('tanggal', $date)
+    //         ->where('student_id', $studentId)
+    //         ->first();
+
+    //     $exists = $presensi !== null;
+
+    //     return response()->json([
+    //         'exists' => $exists
+    //     ]);
+    // }
+
 }

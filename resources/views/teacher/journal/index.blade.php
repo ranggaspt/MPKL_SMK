@@ -40,7 +40,7 @@
                                     <td>{{ $journals->student->classroom->study->name }}</td>
                                     <td>Instansi : {{$journals->instance->instance_name}}</br>Pembimbing :
                                         {{$journals->instance->name}}</td>
-                                    <td>{{ $journals->created_at}}</td>
+                                    <td>{{ date('d-m-Y', strtotime($journals->tanggal))}}</td>
                                     <td>{{ $journals->list_jurnals }}</td>
                                     <td>{{ $journals->validation_jurnal }}</td>
                                     {{-- <td>
