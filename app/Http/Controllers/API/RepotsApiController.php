@@ -37,7 +37,7 @@ class RepotsApiController extends Controller
 
         //upload image
         $file = $request->file('file');
-        $file->storeAs('public/report', $file->hashName());
+        $file->storeAs('public/public/report', $file->hashName());
 
         //create post
         
