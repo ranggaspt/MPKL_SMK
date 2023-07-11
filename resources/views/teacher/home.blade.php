@@ -90,7 +90,7 @@
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ auth()->user()->teacher->studentCount() ?? '0' }}</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fa fa-users fa-2x text-gray-300" aria-hidden="true"></i>
+                                <i class="fa fa-users fa-2x text-gray-300xampp" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
