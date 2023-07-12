@@ -45,7 +45,7 @@ class JournalApiController extends Controller
         ]);
         // }
         $journal = Journal::whereDate('tanggal', '=', date('Y-m-d'))
-                ->first();
+            ->first();
 
         return response()->json([
             'success' => true,
@@ -53,4 +53,16 @@ class JournalApiController extends Controller
             'message' => 'Sukses simpan'
         ]);
     }
+
+    public function show($id)
+    {
+        $journal = Journal::findOrFail($id);
+
+        if (!$journal) {
+            return response()->json(['message' => 'Data not found'], 404);
+        }
+
+        return response()->json($journal, 200);
+    }
+
 }

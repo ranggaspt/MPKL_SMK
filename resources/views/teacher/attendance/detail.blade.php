@@ -37,7 +37,7 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('teacher.attendance.map', Crypt::encrypt($attendances->id)) }}"
-                                                    class="btn btn-sm btn-info">Detail Map</a>
+                                                    class="btn btn-sm btn-info"> <i class="bi bi-geo-alt-fill"></i> Detail Map</a>
                                             </td>
                                         </tr>
                                     @empty

@@ -34,7 +34,7 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('teacher.attendance.show', Crypt::encrypt($attendances->student->id)) }}"
-                                                    class="btn btn-sm btn-info"><i class="bi bi-card-list"></i></a>
+                                                    class="btn btn-sm btn-info"><i class="bi bi-map-fill"></i> Detail</a>
                                             </td>
                                         </tr>
                                     @empty
