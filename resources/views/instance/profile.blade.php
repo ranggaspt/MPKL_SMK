@@ -24,7 +24,7 @@
                         <div class="col-lg-12">
                             <div class="text-center">
                                 <h5 class="font-weight-bold">{{ $data->instance_name }}</h5>
-                                <p>Penyelenggara</p>
+                                <p>Instances</p>
                             </div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                     <h6 class="m-0 font-weight-bold text-white">My Account</h6>
                 </div>
                 <div class="card-body">
-                    <h6 class="heading-small text-muted mb-4">Informasi Penyelenggara</h6>
+                    <h6 class="heading-small text-muted mb-4">Informasi Instance</h6>
 
                     <div class="pl-lg-4">
                         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
@@ -62,7 +62,7 @@
                             @endif
                         </div>
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Nama Penyelenggara</label>
+                            <label for="name" class="col-md-4 control-label">Nama Pembimbing</label>
                             <input id="name" type="text" class="form-control" name="name" value="{{ $data->name }}" required>
                             @if ($errors->has('name'))
                             <span class="help-block">
@@ -82,7 +82,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group{{ $errors->has('instance_address') ? ' has-error' : '' }}">
-                                    <label for="instance_address" class="col-md-4 control-label">Alamat Penyelenggara</label>
+                                    <label for="instance_address" class="col-md-4 control-label">Alamat Instance</label>
                                     <textarea id="instance_address" class="form-control" name="instance_address" required>{{ $data->instance_address }}</textarea>
                                     @if ($errors->has('instance_address'))
                                     <span class="help-block">

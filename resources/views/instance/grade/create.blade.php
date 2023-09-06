@@ -19,18 +19,24 @@
                                     <select class="form-control" name="student_id" required>
                                         <option>Pilih Siswa</option>
                                         @forelse ($student as $students)
-                                        <option value="{{$students->id}}">{{$students->name}}</option>
+                                            @php
+                                                $grades = $students->grades;
+                                                $hasGrades = !empty($grades) && $grades->isNotEmpty();
+                                            @endphp
+                                            @if (!$hasGrades)
+                                                <option value="{{$students->id}}">{{$students->name}}</option>
+                                            @endif
                                         @empty
-                                        <option value="NULL">Siswa belum diinput</option>
+                                            <option value="NULL">Siswa belum diinput</option>
                                         @endforelse
                                     </select>
                                     @if ($errors->has('student_id'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('student_id') }}</strong>
-                                    </span>
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('student_id') }}</strong>
+                                        </span>
                                     @endif
                                 </div>
-                            </div>
+                            </div>                                                                           
 
                             <div class="form-group{{ $errors->has('option_1') ? ' has-error' : '' }}">
                                 <label for="option_1" class="col-md-6 control-label">Disiplin Waktu</label>

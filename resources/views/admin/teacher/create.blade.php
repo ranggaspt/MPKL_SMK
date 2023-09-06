@@ -86,7 +86,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
                                         <label for="phone" class="col-md-4 control-label">Telephone</label>
-                                        <input id="phone" type="text" class="form-control" name="phone" value="{{ old('phone') }}" required>
+                                        <input id="phone" type="number" class="form-control" name="phone" value="{{ old('phone') }}" required>
                                         @if ($errors->has('phone'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('phone') }}</strong>

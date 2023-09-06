@@ -31,39 +31,7 @@
                             </thead>
                             <tbody>
                                 @forelse ($grades as $grade)
-                                <tr>
-                                    <td scope="row">{{ $loop->iteration }}</td>
-                                    <td>{{$grade->student->name}}</td>
-                                    <td>{{ $grade->option_1 }}</td>
-                                    <td>{{ $grade->option_2 }}</td>
-                                    <td>{{ $grade->option_3 }}</td>
-                                    <td>{{ $grade->option_4 }}</td>
-                                    <td>{{ $grade->option_5 }}</td>
-                                    <td>{{$grade->ratarata}}</td>
-                                    <td>
-                                        @if($grade->ratarata >= 96 && $grade->ratarata <=100) Lulus Istimewa @elseif($grade->ratarata >= 86 && $grade->ratarata <=95) Lulus Sangat Baik @elseif($grade->ratarata >= 76 && $grade->ratarata <=85) Lulus Baik @elseif($grade->ratarata >= 66 && $grade->ratarata <=75) Lulus Cukup @elseif($grade->ratarata >= 56 && $grade->ratarata <=65) Lulus Sedang @elseif( $grade->ratarata <=55) Belum Lulus @endif </td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <div class="mr-2">
-                                                <a href="{{ route('instance.grade.edit', Crypt::encrypt($grade->id)) }}" class="btn btn-sm btn-primary">
-                                                    <i class="fa fa-pencil-alt"></i>
-                                                </a>
-                                            </div>
-                                            <div class="mr-2">
-                                                <form action="{{ route('instance.grade.destroy', Crypt::encrypt($grade->id)) }}" method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin ingin menghapus data ini?')"><i class="fa fa-trash"></i></button>
-                                                </form>
-                                            </div>
-                                            <div class='mr-2'>
-                                                <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal">
-                                                    <i class="bi bi-info-circle"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                monitoringpkl
                                 <!-- Modal -->
                                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
