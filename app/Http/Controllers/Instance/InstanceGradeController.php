@@ -22,8 +22,8 @@ class InstanceGradeController extends Controller
     public function index()
     {
         $grades = Grade::where('instance_id', "=", Auth::user()->instance->id)->get();
-        $this->data['grades'] = $grades;
-        return view('instance.grade.index', $this->data);
+        $data['grades'] = $grades;
+        return view('instance.grade.index', $data);
     }
 
     /**
@@ -34,8 +34,8 @@ class InstanceGradeController extends Controller
     public function create()
     {
         $student = Student::where('instance_id', "=", Auth::user()->instance->id)->get();
-        $this->data['student'] = $student;
-        return view('instance.grade.create', $this->data);
+        $data['student'] = $student;
+        return view('instance.grade.create', $data);
     }
 
     /**
