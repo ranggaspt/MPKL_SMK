@@ -41,7 +41,7 @@
                                     <td>{{ $student->classroom->study->name }}</td>
                                     <td>{{ $student->instance->instance_name}}</td>
                                     <td>Telp : {{$student->phone}}</br>Email : {{$student->email}}</td>
-                                    <td>Guru : {{$student->instance->name}}</br>Instansi : {{$student->instance->teacher->name}}</td>
+                                    <td>Guru : {{$student->instance->teacher->name}}</br>Instansi : {{$student->instance->name}}</td>
                                     {{-- <td>{{ $student->address }}</td> --}}
                                     <td>
                                         <div class="d-flex">
