@@ -14,7 +14,7 @@ class TeacherMonitoringController extends Controller
     {
         $student = Student::where('teacher_id',"=",Auth::user()->teacher->id)->get();
 
-        $this->data['student'] = $student;
-        return view('teacher.monitoring.index', $this->data);
+        $data['student'] = $student;
+        return view('teacher.monitoring.index', $data);
     }
 }

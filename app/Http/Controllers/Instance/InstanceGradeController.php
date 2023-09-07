@@ -88,10 +88,10 @@ class InstanceGradeController extends Controller
     {
 
         $student = Student::where('instance_id', "=", Auth::user()->instance->id)->get();
-        $this->data['student'] = $student;
+        $data['student'] = $student;
         $grade = Grade::findOrFail(Crypt::decrypt($id));
-        $this->data['grades'] = $grade;
-        return view('instance.grade.edit', $this->data);
+        $data['grades'] = $grade;
+        return view('instance.grade.edit', $data);
     }
 
     /**

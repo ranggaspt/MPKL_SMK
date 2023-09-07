@@ -17,15 +17,15 @@ class InstanceComplaintController extends Controller
     public function index()
     {
         $complaints = Complaint::where('instance_id',"=",Auth::user()->instance->id)->get();
-        $this->data['complaint'] = $complaints;
-        return view('instance.complaint.index', $this->data);
+        $data['complaint'] = $complaints;
+        return view('instance.complaint.index', $data);
     }
     
     public function create()
     {
         $student = Student::where('instance_id',"=",Auth::user()->instance->id)->get();
-        $this->data['student'] = $student;
-        return view('instance.complaint.create', $this->data);
+        $data['student'] = $student;
+        return view('instance.complaint.create', $data);
     }
 
     public function store(ComplaintRequest $request)
@@ -44,10 +44,10 @@ class InstanceComplaintController extends Controller
     {
         // dd(Complaint::findOrFail(Crypt::decrypt($id)));
         $student = Student::where('instance_id',"=",Auth::user()->instance->id)->get();
-        $this->data['student'] = $student;
+        $data['student'] = $student;
         $complaint = Complaint::findOrFail(Crypt::decrypt($id));
-        $this->data['complaints'] = $complaint;
-        return view('instance.complaint.edit', $this->data);
+        $data['complaints'] = $complaint;
+        return view('instance.complaint.edit', $data);
     }
 
     public function update(ComplaintRequest $request1 ,$id)

@@ -18,15 +18,15 @@ class TeacherJournalController extends Controller
             ->select('student_id',)
             ->distinct()
             ->get();
-        $this->data['journal'] = $journals;
-        return view('teacher.journal.index', $this->data);
+        $data['journal'] = $journals;
+        return view('teacher.journal.index', $data);
     }
 
     public function show(string $id): View
     {
         $journal = Journal::where('student_id', Crypt::decrypt($id))->get();
 
-        $this->data['journal'] = $journal;
-        return view('teacher.journal.detail', $this->data);
+        $data['journal'] = $journal;
+        return view('teacher.journal.detail', $data);
     }
 }

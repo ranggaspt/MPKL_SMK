@@ -27,8 +27,8 @@ class AdminStudentController extends Controller
     public function index()
     {
         $students = Student::all();
-        $this->data['students'] = $students;
-        return view('admin.student.index', $this->data);
+        $data['students'] = $students;
+        return view('admin.student.index', $data);
     }
 
     /**
@@ -39,12 +39,12 @@ class AdminStudentController extends Controller
     public function create()
     {
         $classrooms = Classroom::orderBy('name', 'ASC')->get();
-        $this->data['classrooms'] = $classrooms;
+        $data['classrooms'] = $classrooms;
         $instances = Instance::orderBy('name', 'ASC')->get();
-        $this->data['instances'] = $instances;
+        $data['instances'] = $instances;
         $teachers = Teacher::orderBy('name', 'ASC')->get();
-        $this->data['teachers'] = $teachers;
-        return view('admin.student.create', $this->data);
+        $data['teachers'] = $teachers;
+        return view('admin.student.create', $data);
     }
 
     /**
@@ -102,12 +102,12 @@ class AdminStudentController extends Controller
     public function edit($id)
     {
         $classrooms = Classroom::orderBy('name', 'ASC')->get();
-        $this->data['classrooms'] = $classrooms;
+        $data['classrooms'] = $classrooms;
         $instances = Instance::orderBy('name', 'ASC')->get();
-        $this->data['instances'] = $instances;
+        $data['instances'] = $instances;
         $student = Student::findOrFail(Crypt::decrypt($id));
-        $this->data['data'] = $student;
-        return view('admin.student.edit', $this->data);
+        $data['data'] = $student;
+        return view('admin.student.edit', $data);
     }
 
     /**

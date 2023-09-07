@@ -23,8 +23,8 @@ class InstanceProfileController extends Controller
     public function index()
     {
         $instance = Instance::where('user_id',auth()->user()->id)->first();
-        $this->data['data'] = $instance;
-        return view('instance.profile',$this->data);
+        $this['data'] = $instance;
+        return view('instance.profile',$this);
     }
 
     public function update(InstanceRequest $request)

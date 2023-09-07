@@ -13,9 +13,20 @@ class InstanceJournalController extends Controller
 {
     public function index()
     {
-        $journals = Journal::where('instance_id',"=",Auth::user()->instance->id)->get();
-        $this->data['journal'] = $journals;
-        return view('instance.journal.validation', $this->data);
+        $journals = Journal::where('instance_id',"=",Auth::user()->instance->id)
+        ->select('student_id',)
+        ->distinct()
+        ->get();
+        $data['journal'] = $journals;
+        return view('instance.journal.validation', $data);
+    }
+
+    public function show($id)
+    {
+        $journal = Journal::where('student_id', Crypt::decrypt($id))->get();
+
+        $data['journal'] = $journal;
+        return view('instance.journal.detail', $data);
     }
 
     public function terima($id)

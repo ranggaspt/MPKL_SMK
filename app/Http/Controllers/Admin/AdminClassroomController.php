@@ -19,8 +19,8 @@ class AdminClassroomController extends Controller
     public function index()
     {
         $classrooms = Classroom::all();
-        $this->data['classrooms'] = $classrooms;
-        return view('admin.classroom.index', $this->data);
+        $data['classrooms'] = $classrooms;
+        return view('admin.classroom.index', $data);
     }
 
     /**
@@ -31,8 +31,8 @@ class AdminClassroomController extends Controller
     public function create()
     {
         $studies = Study::orderBy('name', 'ASC')->get();
-        $this->data['studies'] = $studies;
-        return view('admin.classroom.create', $this->data);
+        $data['studies'] = $studies;
+        return view('admin.classroom.create', $data);
     }
 
     /**
@@ -72,10 +72,10 @@ class AdminClassroomController extends Controller
     public function edit($id)
     {
         $studies = Study::orderBy('name', 'ASC')->get();
-        $this->data['studies'] = $studies;
+        $data['studies'] = $studies;
         $classroom = Classroom::findOrFail(Crypt::decrypt($id));
-        $this->data['data'] = $classroom;
-        return view('admin.classroom.edit', $this->data);
+        $data['data'] = $classroom;
+        return view('admin.classroom.edit', $data);
     }
 
     /**

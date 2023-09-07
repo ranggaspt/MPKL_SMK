@@ -19,8 +19,8 @@ class AdminStudyController extends Controller
     public function index(Request $request)
     {
         $studies = Study::all();
-        $this->data['studies'] = $studies;
-        return view('admin.study.index', $this->data);
+        $data['studies'] = $studies;
+        return view('admin.study.index', $data);
     }
 
     /**
@@ -70,8 +70,8 @@ class AdminStudyController extends Controller
     public function edit($id)
     {
         $study = Study::findOrFail(Crypt::decrypt($id));
-        $this->data['data'] = $study;
-        return view('admin.study.edit', $this->data);
+        $data['data'] = $study;
+        return view('admin.study.edit', $data);
     }
 
     /**

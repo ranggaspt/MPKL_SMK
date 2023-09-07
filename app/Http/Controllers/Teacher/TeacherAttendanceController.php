@@ -21,22 +21,22 @@ class TeacherAttendanceController extends Controller
             ->get();
         // dd($attendances);
 
-        $this->data['attendance'] = $attendances;
-        return view('teacher.attendance.index', $this->data);
+        $data['attendance'] = $attendances;
+        return view('teacher.attendance.index', $data);
     }
 
     public function show(string $id): View
     {
         $attendance = Attendance::where('student_id', Crypt::decrypt($id))->get();
 
-        $this->data['attendance'] = $attendance;
-        return view('teacher.attendance.detail', $this->data);
+        $data['attendance'] = $attendance;
+        return view('teacher.attendance.detail', $data);
     }
 
     function map(string $id) {
         // dd(Attendance::findOrFail(Crypt::decrypt($id)));
         $attendance = Attendance::findOrFail(Crypt::decrypt($id));
-        $this->data['attendances'] = $attendance;
-        return view('teacher.attendance.detailmap', $this->data);
+        $data['attendances'] = $attendance;
+        return view('teacher.attendance.detailmap', $data);
     }
 }

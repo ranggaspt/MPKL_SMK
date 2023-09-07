@@ -26,8 +26,8 @@ class AdminInstanceController extends Controller
     public function index()
     {
         $instances = Instance::all();
-        $this->data['instances'] = $instances;
-        return view('admin.instance.index', $this->data);
+        $data['instances'] = $instances;
+        return view('admin.instance.index', $data);
     }
 
     /**
@@ -38,8 +38,8 @@ class AdminInstanceController extends Controller
     public function create()
     {
         $teachers = Teacher::orderBy('name', 'ASC')->get();
-        $this->data['teachers'] = $teachers;
-        return view('admin.instance.create', $this->data);
+        $data['teachers'] = $teachers;
+        return view('admin.instance.create', $data);
     }
 
     /**
@@ -93,10 +93,10 @@ class AdminInstanceController extends Controller
     public function edit($id)
     {
         $teachers = Teacher::orderBy('name', 'ASC')->get();
-        $this->data['teachers'] = $teachers;
+        $data['teachers'] = $teachers;
         $instance =Instance::findOrFail(Crypt::decrypt($id));
-        $this->data['data'] = $instance;
-        return view('admin.instance.edit', $this->data);
+        $data['data'] = $instance;
+        return view('admin.instance.edit', $data);
     }
 
     /**

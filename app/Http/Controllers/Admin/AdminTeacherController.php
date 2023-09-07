@@ -23,8 +23,8 @@ class AdminTeacherController extends Controller
     public function index()
     {
         $teachers = Teacher::all();
-        $this->data['teachers'] = $teachers;
-        return view('admin.teacher.index', $this->data);
+        $data['teachers'] = $teachers;
+        return view('admin.teacher.index', $data);
     }
 
     /**
@@ -88,8 +88,8 @@ class AdminTeacherController extends Controller
     public function edit($id)
     {
         $teacher = Teacher::findOrFail(Crypt::decrypt($id));
-        $this->data['data'] = $teacher;
-        return view('admin.teacher.edit', $this->data);
+        $data['data'] = $teacher;
+        return view('admin.teacher.edit', $data);
     }
 
     /**

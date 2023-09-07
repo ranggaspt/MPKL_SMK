@@ -23,8 +23,8 @@ class TeacherProfileController extends Controller
     public function index()
     {
         $teacher = Teacher::where('user_id',auth()->user()->id)->first();
-        $this->data['data'] = $teacher;
-        return view('teacher.profile',$this->data);
+        $data['data'] = $teacher;
+        return view('teacher.profile',$data);
     }
 
     public function update(TeacherRequest $request)

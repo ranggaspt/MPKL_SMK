@@ -20,16 +20,16 @@ class TeacherReportController extends Controller
         ->select('student_id',)
         ->distinct()
         ->get();
-        $this->data['report'] = $reports;
-        return view('teacher.report.index', $this->data);
+        $data['report'] = $reports;
+        return view('teacher.report.index', $data);
     }
 
     public function show(string $id): View
     {
         $report = Report::where('student_id', Crypt::decrypt($id))->get();
 
-        $this->data['report'] = $report;
-        return view('teacher.report.detail', $this->data);
+        $data['report'] = $report;
+        return view('teacher.report.detail', $data);
     }
 
 }

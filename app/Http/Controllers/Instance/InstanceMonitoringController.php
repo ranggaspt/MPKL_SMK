@@ -14,7 +14,7 @@ class InstanceMonitoringController extends Controller
     {
         $student = Student::where('instance_id',"=",Auth::user()->instance->id)->get();
 
-        $this->data['student'] = $student;
-        return view('instance.monitoring.index', $this->data);
+        $this['student'] = $student;
+        return view('instance.monitoring.index', $this);
     }
 }
