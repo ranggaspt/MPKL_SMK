@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminStudyController;
 use App\Http\Controllers\Admin\AdminStudentController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\errorcontroller;
+use App\Http\Controllers\Instance\InstanceAttendanceController;
 use App\Http\Controllers\Instance\InstanceProfileController;
 use App\Http\Controllers\Instance\InstanceComplaintController;
 use App\Http\Controllers\Instance\InstanceJournalController;
@@ -60,6 +61,8 @@ Route::middleware(['auth','user-access:instance'])->group(function(){
     Route::get('instance/journal/terima/{id}', [InstanceJournalController::class,'terima'])->name('instance.journal.terima');
     Route::get('instance/journal/tolak/{id}', [InstanceJournalController::class,'tolak'])->name('instance.journal.tolak');
     Route::resource('instance/monitoring', InstanceMonitoringController::class)->names('instance.monitoring');
+    Route::resource('instance/attendance', InstanceAttendanceController::class)->names('instance.attendance');
+    Route::get('instance/attendance/map/{id}', [InstanceAttendanceController::class,'map'])->name('instance.attendance.map');
     Route::resource('instance/grade', InstanceGradeController::class)->names('instance.grade');
 });
 

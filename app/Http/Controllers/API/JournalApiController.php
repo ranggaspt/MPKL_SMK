@@ -54,15 +54,32 @@ class JournalApiController extends Controller
         ]);
     }
 
-    public function show($id)
+    // public function show($id)
+    // {
+    //     $journal = Journal::findOrFail($id);
+
+    //     if (!$journal) {
+    //         return response()->json(['message' => 'Data not found'], 404);
+    //     }
+
+    //     return response()->json($journal, 200);
+    // }
+
+    public function destroy($id)
     {
-        $journal = Journal::findOrFail($id);
-
-        if (!$journal) {
-            return response()->json(['message' => 'Data not found'], 404);
+        try {
+            $journal = Journal::find($id);
+    
+            if (!$journal) {
+                return response()->json(['message' => 'Jurnal tidak ditemukan'], 404);
+            }
+    
+            $journal->delete();
+    
+            return response()->json(['message' => 'Jurnal berhasil dihapus'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Terjadi kesalahan saat menghapus jurnal'], 500);
         }
-
-        return response()->json($journal, 200);
     }
 
 }

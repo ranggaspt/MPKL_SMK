@@ -14,13 +14,13 @@ class RepotsApiController extends Controller
     public function index()
     {
         $reports = Report::where('student_id', Auth::user()->student->id)
-        ->get();
-    return response()->json([
-        'success' => true,
-        'data' => $reports,
-        'message' => 'Sukses menampilkan data'
-    ]);
-}
+            ->get();
+        return response()->json([
+            'success' => true,
+            'data' => $reports,
+            'message' => 'Sukses menampilkan data'
+        ]);
+    }
 
     public function store(Request $request)
     {
@@ -40,9 +40,9 @@ class RepotsApiController extends Controller
         $file->storeAs('public/public/report', $file->hashName());
 
         //create post
-        
+
         $report = Report::create([
-            
+
             'student_id' => Auth::user()->student->id,
             'teacher_id' => Auth::user()->student->teacher_id,
             'description' => $request->description,
@@ -50,7 +50,32 @@ class RepotsApiController extends Controller
             'file' => $file->hashName(),
         ]);
         $report = Report::whereDate('tanggal', '=', date('Y-m-d'))
-                ->first();
+            ->first();
         return new ReportsResource(true, 'Data laporan magang Berhasil Ditambahkan!', $report);
+    }
+
+    public function destroy($id)
+    {
+        try {
+            $report = Report::find($id);
+
+            if (!$report) {
+                return response()->json(['message' => 'Jurnal tidak ditemukan'], 404);
+            }
+            $filePath = storage_path('app/public/public/report/' . $report->file);
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+            $report->delete();
+
+            return response()->json(['message' => 'report berhasil dihapus'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Terjadi kesalahan saat menghapus jurnal'], 500);
+        }
+    }
+
+    public function update(Request $request, $id) 
+    {
+        
     }
 }

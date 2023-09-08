@@ -43,4 +43,9 @@ class Instance extends Model
         return $this->hasMany(Complaint::class)->count();
     }
 
+    public function attendanceCount()
+    {
+        return $this->hasMany(Attendance::class)->count();
+    }
+
 }

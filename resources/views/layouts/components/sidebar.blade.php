@@ -116,6 +116,13 @@
     {{-- INSTANCE SIDE BAR--}}
     @elseif(auth()->user()->role == 'instance')
 
+    <li class="nav-item {{ Route::current()->getName()=='instance.attendance.index' ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('instance.attendance.index') }}">
+            <i class="bi bi-person-fill fa-graduation-cap"></i>
+            <span>{{ __('Absensi') }}</span>
+        </a>
+    </li>
+
     <li class="nav-item {{ Route::current()->getName()=='instance.journal.index' ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('instance.journal.index') }}">
             <i class="bi bi-book-fill fa-graduation-cap"></i>
